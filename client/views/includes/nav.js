@@ -4,3 +4,9 @@ Template.nav.events({
     FlowRouter.setQueryParams({action: "newNote"});
   }
 });
+
+Template.nav.helpers({
+  pathForNotes: function() {
+    return FlowRouter.path("/notes");
+  }
+});

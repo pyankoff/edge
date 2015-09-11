@@ -20,9 +20,14 @@
                     <a href="#" id="newNoteButton">Add Note</a>
                 </li>
                 <li>
-                    {{>loginButtons}}
+                    <a href="{{pathForNotes}}">Notes</a>
                 </li>
+                <li class="dropdown">
+                  {{> notifications}}
+                </li>
+                {{>loginButtons}}
             </ul>
+            
         </div>
         <!-- /.navbar-collapse -->
     </div>

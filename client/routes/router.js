@@ -1,12 +1,18 @@
 FlowRouter.route('/', {
   action: function() {
-    BlazeLayout.render("layout", {content: "pointList"});
+    BlazeLayout.render("layout", {content: "pointsList"});
   }
 });
 
 FlowRouter.route('/note/:noteId', {
   action: function() {
-    BlazeLayout.render("layout", {content: "pointList"});
+    BlazeLayout.render("layout", {content: "notePage"});
+  }
+});
+
+FlowRouter.route('/notes', {
+  action: function() {
+    BlazeLayout.render("layout", {content: "notesList"});
   }
 });
 

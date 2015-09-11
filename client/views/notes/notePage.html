@@ -1,0 +1,15 @@
+<template name="notePage">
+  {{#with note}}
+    <h3>{{name}}</h3>
+    <h5>Owner: {{username}}</h5>
+  {{/with}}
+
+  {{> addPoint }}
+
+  <div class="wrapper">
+    {{#each points}}
+      {{> pointItem}}
+    {{/each}}
+  </div>
+  
+</template>

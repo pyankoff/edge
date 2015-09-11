@@ -1,10 +1,10 @@
 Template.pointItem.helpers({
   pathForPoint: function() {
-    var params = {
-        pointId: this._id
-    };
+    var bestNote = Notes.findOne({_id: {$in: this.notes}},
+                                {$orderby:{lights: -1}});
 
-    var path = FlowRouter.path("point/:pointId", params);
+    var path = FlowRouter.path("/note/:noteId", 
+        { noteId: bestNote._id });
 
     return path;
   },
@@ -25,6 +25,7 @@ Template.pointItem.events({
   },
   'click .note': function(e) {
     e.preventDefault();
+    Session.set("selectedPoint", this._id);
     FlowRouter.setQueryParams({action: "addToNote"});
   }
 });
