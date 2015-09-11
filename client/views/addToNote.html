@@ -1,0 +1,7 @@
+<template name="addToNote">
+  {{#modal heading="Add to Note" modalName="addToNote"}}
+    {{#each notes}}
+      <a href="#" class="noteSelect btn btn-default">{{this.name}}</a>
+    {{/each}}
+  {{/modal}}
+</template>
