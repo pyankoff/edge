@@ -1,33 +1,25 @@
 <template name="nav">
-  <!-- Navigation -->
-  <nav class="navbar navbar-default navbar-custom">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="{{ site.baseurl }}/">TILBASE</a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="{{pathForNotes}}">Notes</a>
-                </li>
-                <li class="dropdown">
-                  {{> notifications}}
-                </li>
-                {{>loginButtons}}
-            </ul>
-            
-        </div>
-        <!-- /.navbar-collapse -->
+  <nav class="navbar navbar-default" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Edge</a>
     </div>
-    <!-- /.container -->
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/new">New</a></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        {{> loginButtons}}
+      </ul>
+    </div><!-- /.navbar-collapse -->
   </nav>
 </template>
