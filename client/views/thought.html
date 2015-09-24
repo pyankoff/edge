@@ -1,0 +1,13 @@
+<template name="note">
+  <div class="main-content container">
+    <div class="col-md-8 col-md-offset-2">
+      {{> noteItem}}
+
+      {{> newComment}}
+
+      {{#each comments}}
+        <p>{{> comment}}</p>
+      {{/each}}
+    </div>  
+  </div>
+</template>

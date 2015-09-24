@@ -1,4 +1,26 @@
 /* CSS declarations go here */
+.main-content {
+  margin-top: 60px;
+}
+
 .bit {
   padding: 10px;
+}
+
+.glyphicon:hover {
+  cursor: pointer;
+}
+
+.currentCol {
+  position: fixed;
+  top: 60px;
+  bottom: 0px;
+  overflow: scroll;
+}
+
+.feed {
+  position: fixed;
+  top: 60px;
+  bottom: 0px;
+  overflow: scroll;
 }

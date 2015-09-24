@@ -1,7 +1,11 @@
 <template name="home">
-  <div class="container"> 
-    {{#each bits}}
-      <p>{{> bitItem}}</p>
-    {{/each}}
+  <div class="main-content container">
+
+    <div class="col-md-8 col-md-offset-2">
+      {{#each bits}}
+        <p>{{> noteItem}}</p>
+      {{/each}}
+    </div>
+    
   </div>
 </template>

@@ -1,11 +1,7 @@
-<template name="bitItem">
+<template name="noteItem">
   <div class="bit">
-    <h4>{{text}}</h4>
+    <a href="{{noteLink}}"><h4>{{text}}</h4></a>
     <p>{{author}}</p>
-
-    <div class="row actions">
-      <div class="pull-right"><a href="#" class="glyphicon glyphicon-remove"></a></div>
-      <div class="col-xs-2 col-sm-1"><a href="#" class="glyphicon glyphicon-pencil"></a></div>
-    </div>
+    <hr>
   </div>
 </template>

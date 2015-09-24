@@ -5,7 +5,8 @@ Template.newBit.events({
     var bit = {
       text: e.target.text.value,
       author: e.target.author.value,
-      source: e.target.source.value
+      source: e.target.source.value,
+      collection: false
     }
 
     Meteor.call('newBit', bit, function (error, result) {
