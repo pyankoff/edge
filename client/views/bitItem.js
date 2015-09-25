@@ -7,7 +7,7 @@ Template.noteItem.events({
   'click .glyphicon-plus': function(e) {
     Session.set("selected", this._id);
   },
-  'click .note-item': function(e) {
+  'click .note': function(e) {
     FlowRouter.go("/note/:id", {id: this._id});
   }
 });

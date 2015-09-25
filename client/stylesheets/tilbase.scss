@@ -3,6 +3,11 @@
 .note-item {
   padding-top: 10px;
   padding-bottom: 10px;
+
+  display: flex;
+  align-items: center;
+
+  min-height: 100px;
 }
 
 .note-item:hover {
@@ -58,4 +63,3 @@
 .navbar-right {
     margin-right: 0px;
 }
-  

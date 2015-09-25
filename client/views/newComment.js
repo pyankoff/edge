@@ -6,7 +6,8 @@ Template.newComment.events({
 
     Comments.insert({
       text: text,
-      note: this._id
+      note: this._id,
+      username: Meteor.userId()
     });
 
     e.target.reset();
