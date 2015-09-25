@@ -9,6 +9,9 @@ Template.noteItem.events({
   },
   'click .note': function(e) {
     FlowRouter.go("/note/:id", {id: this._id});
+  },
+  'click .collect': function(e) {
+
   }
 });
 
@@ -20,3 +23,15 @@ Template.noteItem.helpers({
     return FlowRouter.path("/note/:id", {id: this._id});
   }
 });
+
+Template.noteItem.rendered = function () {
+  $(".collect").popover({
+      html: true,
+      placement: 'bottom',
+      trigger: 'focus',
+      title: 'Add to collection',
+      content: function() {
+          return Blaze.toHTML(Template.comment);
+      }
+  });
+};
