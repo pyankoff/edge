@@ -1,4 +1,14 @@
-/* CSS declarations go here */
+$border-radius: 4px;
+$accent: #C0392B;
+$text-color: #222;
+$grey-dark: #999;
+$grey-light: #eee;
+
+$sans: 'Helvetica Neue', sans-serif;
+$serif: 'Playfair Display', serif;
+$mono: Menlo, Monaco, monospace;
+
+@import "dropdowns";
 
 .note-item {
   padding-top: 10px;
@@ -62,4 +72,13 @@
 
 .navbar-right {
     margin-right: 0px;
+}
+
+.new-collection-div {
+  position: absolute;
+  bottom: 10px;
+  left: 20px;
+  .form-inline {
+    width: 250px;
+  }
 }
