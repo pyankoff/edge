@@ -1,10 +1,12 @@
 <template name="collectionItem">
-  <div class="row note-item">
-    <div class="note col-sm-11">
-      <a href="{{noteLink}}" class="note-title">{{name}}</a>
+  <a href="{{noteLink}}" class="note-title">
+    <div class="row note-item">
+        <div class="note col-sm-11">
+          {{name}}
+        </div>
+      <div class="note-info col-sm-1">
+        <p>{{author}}</p>
+      </div>
     </div>
-    <div class="note-info col-sm-1">
-      <p>{{author}}</p>
-    </div>
-  </div>
+  </a>
 </template>

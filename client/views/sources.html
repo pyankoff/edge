@@ -1,0 +1,12 @@
+<template name="sources">
+  <div class="row">
+  {{#each sources}}
+    <div class="source col-sm-3">
+      <a class="collection-card" href="{{sourceLink}}">
+        <img src="http://placehold.it/300x300" class="img-thumbnail">
+        {{name}}
+      </a>
+    </div>
+  {{/each}}
+  </div>
+</template>

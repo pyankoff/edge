@@ -1,7 +1,7 @@
 Template.home.helpers({
-  bits: function () {
-    var bits = Bits.find();
+  notes: function () {
+    var notes = Bits.find();
 
-    return bits;
+    return notes;
   }
 });

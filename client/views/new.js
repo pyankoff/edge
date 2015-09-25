@@ -5,7 +5,7 @@ Template.newBit.events({
     var bit = {
       text: e.target.text.value,
       author: e.target.author.value,
-      source: e.target.source.value,
+      source: 'kejpvyGtMWvmnQWYP',
       collection: false
     }
 
