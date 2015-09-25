@@ -1,11 +1,5 @@
 <template name="home">
-  <div class="main-content container">
-
-    <div class="container">
-      {{#each bits}}
-        {{> noteItem}}
-      {{/each}}
-    </div>
-    
-  </div>
+  {{#each bits}}
+    {{> noteItem}}
+  {{/each}}
 </template>
