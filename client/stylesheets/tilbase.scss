@@ -1,0 +1,61 @@
+/* CSS declarations go here */
+
+.note-item {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.note-item:hover {
+  background-color: #ccc;
+  cursor: pointer;
+}
+
+.note-title {
+  color: #000;
+  font-size: 1.5em;
+  &, &:hover, &:active, &:link, &:visited {
+    text-decoration: none;
+    color: #000;
+  }
+}
+
+
+.comments-list {
+  padding: 0;
+  margin-top: 20px;
+  list-style-type: none;
+  .comment {
+    display: block;
+    width: 100%;
+    margin: 20px 0;
+    .avatar {
+      width: 35px;
+      height: 35px;
+    }
+    .comment-heading {
+      display: block;
+      width: 100%;
+      .user {
+        font-size: 14px;
+        font-weight: bold;
+        display: inline;
+        margin-top: 0;
+        margin-right: 10px;
+      }
+      .time {
+        font-size: 12px;
+        color: #aaa;
+        margin-top: 0;
+        display: inline;
+      }
+    }
+    .comment-body {
+      margin-left: 50px;
+    }
+  }
+}
+
+.navbar-right {
+    margin-right: 0px;
+}
+  

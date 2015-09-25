@@ -7,17 +7,8 @@ Template.noteItem.events({
   'click .glyphicon-plus': function(e) {
     Session.set("selected", this._id);
   },
-  'submit .collect': function(e) {
-    e.preventDefault();
-
-    var collectionName = e.target.collection.value;
-
-    Meteor.call('collect', this._id, collectionName, function (error, result) {
-      Session.set("currentCollection", result);
-    });
-
-    e.target.reset();
-    Session.set('selected', null);
+  'click .note-item': function(e) {
+    FlowRouter.go("/note/:id", {id: this._id});
   }
 });
 
@@ -26,6 +17,6 @@ Template.noteItem.helpers({
     return this._id == Session.get("selected");
   },
   noteLink: function() {
-    return FlowRouter.path("/note/:id", {id:this._id});
+    return FlowRouter.path("/note/:id", {id: this._id});
   }
 });

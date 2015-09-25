@@ -1,13 +1,15 @@
 <template name="note">
   <div class="main-content container">
-    <div class="col-md-8 col-md-offset-2">
+    {{#with note}}
       {{> noteItem}}
 
       {{> newComment}}
 
+      <ul class="row comments-list">
       {{#each comments}}
-        <p>{{> comment}}</p>
+        {{> comment}}
       {{/each}}
-    </div>  
+      </ul>
+    {{/with}}
   </div>
 </template>
