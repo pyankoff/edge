@@ -39,8 +39,6 @@ Template.profile.onCreated(function() {
   self.autorun(function() {
     var username = FlowRouter.getParam('username');
 
-    var user = Meteor.users.findOne({username:username});
-
-    self.subscribe('singleUser', user._id);
+    self.subscribe('singleUser', username);
   });
 });

@@ -1,23 +1,22 @@
 <template name="profile">
-  <header>
-    <div class="container">
-      <div class="row">
-        <h3>Profile page of {{username}}</h3>
+  {{#if Template.subscriptionsReady}}
+    <header>
+      <div class="container">
+        <div class="row">
+          <h3>Profile page of {{username}}</h3>
+        </div>
+
+        <ul class="nav nav-tabs nav-justified">
+          <li role="presentation" class="active"><a href="{{linkForUpvoted}}">Upvoted</a></li>
+          <li role="presentation"><a href="{{linkForSubmitted}}">Submitted</a></li>
+          <li role="presentation"><a href="{{linkForCollections}}">Collections</a></li>
+        </ul>
       </div>
-
-      <ul class="nav nav-tabs nav-justified">
-        <li role="presentation" class="active"><a href="{{linkForUpvoted}}">Upvoted</a></li>
-        <li role="presentation"><a href="{{linkForSubmitted}}">Submitted</a></li>
-        <li role="presentation"><a href="{{linkForCollections}}">Collections</a></li>
-      </ul>
+    </header>
+    <div class="container">
+        {{#with notes}}
+          {{> notesList}}
+        {{/with}}
     </div>
-  </header>
-  <div class="container">
-    {{#if Template.subscriptionsReady}}
-      {{#with notes}}
-        {{> notesList}}
-      {{/with}}
-    {{/if}}
-  </div>
-
+  {{/if}}
 </template>

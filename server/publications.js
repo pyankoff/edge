@@ -1,9 +1,19 @@
-Meteor.publish('singleUser', function(id) {
+Meteor.publish('singleUser', function(username) {
   var options = {
-    app: 1
+    fields: {
+      emails: 0,
+      createdAt: 0,
+      isAdmin: 0,
+      services: 0
+    }
   }
 
-  return Meteor.users.find(id, options);
+  var user = Meteor.users.findOne({username: username});
+
+  var userCursor = Users.find(user._id, options);
+  var notesCursor = Notes.find({"_id": {$in: user.app.upvotedNotes}});
+
+  return [userCursor, notesCursor];
 });
 
 Meteor.publish("notes", function(){
