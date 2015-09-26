@@ -1,5 +1,5 @@
 <template name="home">
-  {{#each notes}}
-    {{> noteItem}}
-  {{/each}}
+  {{#with notes}}
+    {{> notesList}}
+  {{/with}}
 </template>

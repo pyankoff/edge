@@ -70,6 +70,10 @@ $mono: Menlo, Monaco, monospace;
   }
 }
 
+.navbar {
+  margin-bottom: 0px;
+}
+
 .navbar-right {
     margin-right: 0px;
 }
@@ -93,4 +97,25 @@ $mono: Menlo, Monaco, monospace;
 
 .upvoted {
   background-color: #ffdead;
+}
+
+header {
+  background-color: #534540;
+  height: 200px;
+  h3 {
+    color: white;
+  }
+  .container {
+    position: relative;
+    height: 100%;
+  }
+  a {
+    color: white;
+  }
+}
+
+.nav-tabs {
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }

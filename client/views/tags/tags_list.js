@@ -6,3 +6,11 @@ Template.tags.helpers({
     return FlowRouter.path("/tag/:id", {id: this._id});
   }
 });
+
+Template.tags.onCreated(function() {
+  var self = this;
+
+  self.autorun(function() {
+    self.subscribe('tags');
+  });
+});

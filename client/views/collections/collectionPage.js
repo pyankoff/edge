@@ -12,3 +12,11 @@ Template.collectionPage.helpers({
     return notes;
   }
 });
+
+Template.collectionPage.onCreated(function() {
+  var self = this;
+
+  self.autorun(function() {
+    self.subscribe('collections');
+  });
+});

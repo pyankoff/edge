@@ -11,3 +11,11 @@ Template.tagPage.helpers({
     return notes;
   }
 });
+
+Template.tagPage.onCreated(function() {
+  var self = this;
+
+  self.autorun(function() {
+    self.subscribe('tags');
+  });
+});
