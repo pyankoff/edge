@@ -13,6 +13,13 @@ Template.noteItem.helpers({
     }
 
     return actionClass;
+  },
+  tags: function () {
+    var tags = Tags.find({"_id": {$in: this.tags}});
+    return tags;
+  },
+  linkForTag: function () {
+    return FlowRouter.path("/tag/:id", {id: this._id});
   }
 });
 
@@ -29,11 +36,11 @@ Template.noteItem.events({
     if (user.hasUpvoted(note)) {
       Meteor.call('cancelUpvoteNote', note._id, function(){
         // Events.track("note upvote cancelled", {'_id': note._id});
-      });        
+      });
     } else {
       Meteor.call('upvoteNote', note._id, function(){
         // Events.track("note upvoted", {'_id': note._id});
-      });  
+      });
     }
   }
 });

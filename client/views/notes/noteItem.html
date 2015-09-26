@@ -1,12 +1,19 @@
 <template name="noteItem">
   <div class="row note-item">
-    <div class="upvote col-sm-1"> 
+    <div class="upvote col-sm-1">
       <span class="btn btn-default btn-upvote {{actionClass}}">⇧</span>
     </div>
     <div class="note col-sm-8">
-      <a href="{{noteLink}}" class="note-title">{{text}}</a>
+      <div class="row">
+        <a href="{{noteLink}}" class="note-title">{{text}}</a>
+      </div>
+      <div class="row">
+        {{#each tags}}
+          <a href="{{linkForTag}}" class="btn btn-default btn-sm">{{name}}</a>
+        {{/each}}
+      </div>
     </div>
-    <div class="collect col-sm-1"> 
+    <div class="collect col-sm-1">
       {{> addToCollection}}
     </div>
     <div class="note-info col-sm-1">
