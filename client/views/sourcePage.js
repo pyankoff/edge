@@ -1,10 +1,10 @@
-Template.sourcePage.helpers({
+Template.tagPage.helpers({
   notes: function () {
     var currentPath = FlowRouter.current();
-    var source = Sources.findOne(currentPath.params.id);
+    var tag = Tags.findOne(currentPath.params.id);
 
-    var notes = Bits.find({
-      source: source._id
+    var notes = Notes.find({
+      tags: tag._id
     });
 
     return notes;

@@ -1,6 +1,6 @@
 Template.home.helpers({
   notes: function () {
-    var notes = Bits.find();
+    var notes = Notes.find();
 
     return notes;
   }

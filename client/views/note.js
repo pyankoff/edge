@@ -1,7 +1,7 @@
 Template.note.helpers({
   note: function () {
     var currentPath = FlowRouter.current();
-    var note = Bits.findOne(currentPath.params.id);
+    var note = Notes.findOne(currentPath.params.id);
     return note;
   },
   comments: function() {

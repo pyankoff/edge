@@ -1,8 +1,8 @@
-Template.sources.helpers({
-  sources: function () {
-    return Sources.find();
+Template.tags.helpers({
+  tags: function () {
+    return Tags.find();
   },
-  sourceLink: function() {
-    return FlowRouter.path("/source/:id", {id: this._id});
+  tagLink: function() {
+    return FlowRouter.path("/tag/:id", {id: this._id});
   }
 });
