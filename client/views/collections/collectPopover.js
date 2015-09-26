@@ -11,9 +11,6 @@ Template.collectPopover.helpers({
 });
 
 Template.collectPopover.events({
-  'click .collect': function(e) {
-    Session.set('selectedNoteId', this._id);
-  },
   'click .add-new-collection': function (e) {
     e.preventDefault();
 

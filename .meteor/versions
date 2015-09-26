@@ -22,6 +22,7 @@ chhib:selectize-bootstrap-3@0.0.1
 coffeescript@1.0.9
 comerc:autoform-selectize@2.2.3
 cosmos:browserify@0.5.1
+dburles:collection-helpers@1.0.3
 ddp@1.2.2
 ddp-client@1.2.1
 ddp-common@1.2.1
