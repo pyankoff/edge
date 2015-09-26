@@ -1,5 +1,5 @@
 <template name="newBit">
-  {{#autoForm collection="Notes" id="newNoteForm" type="insert"}}
+  {{#autoForm collection="Notes" id="newNoteForm" type="method" meteormethod="submitNote"}}
     <fieldset>
       <legend>Add a Note</legend>
       {{> afQuickField name='text' rows=6}}

@@ -15,7 +15,7 @@ Meteor.startup(function () {
         updatedComments += App.updateScore({collection: Comments, item: comment});
       });
       console.log("Updated "+updatedNotes+"/"+Notes.find().count()+" Notes")
-      console.log("Updated "+updatedComments+"/"+Notes.find().count()+" Comments")
+      console.log("Updated "+updatedComments+"/"+Comments.find().count()+" Comments")
     }, scoreInterval * 1000);
 
     // inactive items get updated every hour

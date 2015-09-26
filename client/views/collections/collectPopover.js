@@ -27,6 +27,8 @@ Template.collectPopover.events({
     Session.set('addNewCollection', false);
   },
   'click .collection-label': function(e) {
+    e.preventDefault();
+    
     var selectedNoteId = Session.get('selectedNoteId');
 
     Collections.update({_id: this._id},
