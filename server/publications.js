@@ -8,17 +8,22 @@ Meteor.publish('singleUser', function(username) {
     }
   }
 
+  return Users.find(user._id, options);;
+});
+
+Meteor.publish("singleUserUpvotes", function(username){
   var user = Meteor.users.findOne({username: username});
-
-  var userCursor = Users.find(user._id, options);
-  var notesCursor = Notes.find({"_id": {$in: user.app.upvotedNotes}});
-
-  return [userCursor, notesCursor];
+  return Notes.find({"_id": {$in: user.app.upvotedNotes}});
 });
 
-Meteor.publish("notes", function(){
-  return Notes.find();
+Meteor.publish("singleUserSubmitted", function(username){
+  var user = Meteor.users.findOne({username: username});
+  return Notes.find({"userId": user._id});
 });
+
+// Meteor.publish("notes", function(){
+//   return Notes.find();
+// });
 
 Meteor.publish("collections", function(){
   return Collections.find();

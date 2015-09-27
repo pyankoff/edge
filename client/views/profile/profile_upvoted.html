@@ -1,0 +1,7 @@
+<template name="profileUpvoted">
+  {{#if Template.subscriptionsReady}}
+    {{#with notes}}
+      {{> notesList}}
+    {{/with}}
+  {{/if}}
+</template>
