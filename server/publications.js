@@ -49,9 +49,9 @@ Meteor.publish("topNotes", function(){
 });
 
 Meteor.publish("topCollections", function(){
-  return Collections.find({isTag: {$ne: true}});
+  return Collections.find({type: 'collection'});
 });
 
 Meteor.publish("topTags", function(){
-  return Collections.find({isTag: true});
+  return Collections.find({type: {$ne: 'collection'}});
 });
