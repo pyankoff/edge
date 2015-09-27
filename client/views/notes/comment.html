@@ -10,9 +10,14 @@
         </div>
         <p>{{body}}</p>
         <span class="btn btn-default btn-sm btn-reply">Reply</span>
+
         {{#if replyToThis}}
           {{> commentSubmit}}
         {{/if}}
+
+        {{#each replies}}
+          {{> comment}}
+        {{/each}}
     </div>
   </li>
 </template>

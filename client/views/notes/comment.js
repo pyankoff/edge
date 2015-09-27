@@ -7,6 +7,9 @@ Template.comment.helpers({
   replyToThis: function() {
     var replyId = Session.get('replyTo');
     return replyId && replyId == this._id;
+  },
+  replies: function() {
+    return Comments.find({topLevelCommentId: this._id});
   }
 });
 

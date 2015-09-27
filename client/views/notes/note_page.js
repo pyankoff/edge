@@ -5,7 +5,10 @@ Template.notePage.helpers({
     return note;
   },
   comments: function() {
-    return Comments.find({noteId: this._id});
+    return Comments.find({
+      noteId: this._id,
+      topLevelCommentId: { $exists: false }
+    });
   }
 });
 
