@@ -20,6 +20,15 @@ $mono: Menlo, Monaco, monospace;
   min-height: 100px;
 }
 
+.item-thumbnail {
+  padding-left: 0px;
+}
+
+.item-author {
+  font: 1.4em;
+  font-weight: bold;
+}
+
 .note-item:hover {
   background-color: #ccc;
   cursor: pointer;
@@ -76,6 +85,12 @@ $mono: Menlo, Monaco, monospace;
 
 .navbar-right {
     margin-right: 0px;
+}
+
+.dropdown__menu {
+  height: 80%;
+  overflow: scroll;
+  text-align: left;
 }
 
 .new-collection-div {

@@ -46,3 +46,11 @@ Template.collectPopover.destroyed = function () {
   Session.set('addNewCollection', null);
   Session.set('collectSuccess', null);
 };
+
+Template.collectPopover.onCreated(function() {
+  var self = this;
+
+  self.autorun(function() {
+    self.subscribe('topCollections');
+  });
+});

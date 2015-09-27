@@ -14,15 +14,8 @@ Template.noteItem.helpers({
 
     return actionClass;
   },
-  tags: function () {
-    var tags = Collections.find({
-      "_id": {$in: this.tags},
-      "isTag": true
-    });
-    return tags;
-  },
   linkForTag: function () {
-    return FlowRouter.path("/tag/:id", {id: this._id});
+    return FlowRouter.path("/collection/:id", {id: this.id});
   }
 });
 

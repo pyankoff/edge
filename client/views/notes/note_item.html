@@ -3,7 +3,13 @@
     <div class="upvote col-sm-1">
       <span class="btn btn-default btn-upvote {{actionClass}}">⇧</span>
     </div>
-    <div class="note col-sm-8">
+    <div class="item-thumbnail col-sm-1 hidden-xs">
+      <img src="https://pbs.twimg.com/profile_images/1824002576/pg-railsconf_bigger.jpg" class="img-responsive img-rounded">
+    </div>
+    <div class="note col-sm-9 col-xs-10">
+      <div class="row">
+        <span class="item-author">Paul Graham</span>
+      </div>
       <div class="row">
         <a href="{{noteLink}}" class="note-title">{{text}}</a>
       </div>
@@ -15,12 +21,6 @@
     </div>
     <div class="collect col-sm-1">
       {{> addToCollection}}
-    </div>
-    <div class="note-info col-sm-1">
-      <p>{{author}}</p>
-    </div>
-    <div class="note-source col-sm-1">
-      <a href="{{source}}" target="_blank">Source</a>
     </div>
   </div>
 </template>
