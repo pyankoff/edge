@@ -21,6 +21,8 @@ Template.collectPopover.events({
 
     Collections.insert({
       name: e.target.collectionName.value,
+      userId: Meteor.userId(),
+      isTag: false,
       notes: []
     });
 

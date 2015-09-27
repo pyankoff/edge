@@ -1,0 +1,23 @@
+<template name="commentSubmit">
+  <!-- {{#if canComment}} -->
+    <div class="comment-form comment-new module">
+      <h4 class="comment-new-heading">Add comment</h4>
+      {{#autoForm collection="Comments" id="submitCommentForm" type="method" meteormethod="submitComment" parentContext=this}}
+        <fieldset>
+          <div class="form-group">
+            {{> afFieldInput name='body' rows=5}}
+          </div>
+        </fieldset>
+        <button type="submit" class="btn btn-lg btn-primary pull-right">Add</button>
+      {{/autoForm}}
+    </div>
+
+
+  <!-- {{else}}
+    {{#if isLoggedIn}}
+      <p class="cannot-comment-message">{{_ "sorry_you_do_not_have_the_rights_to_comments"}}</p>
+    {{else}}
+      <p class="cannot-comment-message"><a href="{{pathFor route='atSignIn'}}">{{_ "please_log_in_to_comment"}}</a></p>
+    {{/if}}
+  {{/if}} -->
+</template>

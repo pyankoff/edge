@@ -12,6 +12,6 @@ Template.profileUpvoted.onCreated(function() {
   self.autorun(function() {
     var username = FlowRouter.getParam('username');
 
-    self.subscribe('singleUserUpvotes', username);
+    self.subscribe('singleUser', username);
   });
 });

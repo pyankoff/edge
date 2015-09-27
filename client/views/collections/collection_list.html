@@ -1,5 +1,5 @@
 <template name="collectionList">
-    {{#each collections}}
-      {{> collectionItem}}
-    {{/each}}
+  {{#with collections}}
+    {{> collectionsGrid}}
+  {{/with}}
 </template>

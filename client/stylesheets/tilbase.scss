@@ -96,13 +96,14 @@ $mono: Menlo, Monaco, monospace;
 }
 
 .upvoted {
-  background-color: #ffdead;
+  background-color: #ddd;
 }
 
 header {
-  background-color: #534540;
+  background-color: #777;
   height: 200px;
-  h3 {
+  text-align: center;
+  h1, h2, h3, h4, h5 {
     color: white;
   }
   .container {
@@ -118,4 +119,8 @@ header {
   position: absolute;
   bottom: 0;
   left: 0;
+}
+
+.grid {
+  padding-top: 20px;
 }

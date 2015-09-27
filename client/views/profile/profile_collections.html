@@ -1,3 +1,7 @@
 <template name="profileCollections">
-  
+  {{#if Template.subscriptionsReady}}
+    {{#with collections}}
+      {{> collectionsGrid}}
+    {{/with}}
+  {{/if}}
 </template>

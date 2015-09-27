@@ -5,3 +5,11 @@ Template.home.helpers({
     return notes;
   }
 });
+
+Template.home.onCreated(function() {
+  var self = this;
+
+  self.autorun(function() {
+    self.subscribe('topNotes');
+  });
+});

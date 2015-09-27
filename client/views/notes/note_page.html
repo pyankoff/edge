@@ -1,8 +1,9 @@
-<template name="note">
+<template name="notePage">
+  {{#if Template.subscriptionsReady}}
     {{#with note}}
       {{> noteItem}}
 
-      {{> newComment}}
+      {{> commentSubmit}}
 
       <ul class="row comments-list">
       {{#each comments}}
@@ -10,4 +11,5 @@
       {{/each}}
       </ul>
     {{/with}}
+  {{/if}}
 </template>

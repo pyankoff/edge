@@ -15,7 +15,10 @@ Template.noteItem.helpers({
     return actionClass;
   },
   tags: function () {
-    var tags = Tags.find({"_id": {$in: this.tags}});
+    var tags = Collections.find({
+      "_id": {$in: this.tags},
+      "isTag": true
+    });
     return tags;
   },
   linkForTag: function () {

@@ -8,12 +8,11 @@ Meteor.publish('singleUser', function(username) {
     }
   }
 
-  return Users.find(user._id, options);;
-});
-
-Meteor.publish("singleUserUpvotes", function(username){
   var user = Meteor.users.findOne({username: username});
-  return Notes.find({"_id": {$in: user.app.upvotedNotes}});
+  var userCursor = Users.find(user._id, options);
+  var notesCursor = Notes.find({"_id": {$in: user.app.upvotedNotes}});
+
+  return [userCursor, notesCursor];
 });
 
 Meteor.publish("singleUserSubmitted", function(username){
@@ -21,14 +20,38 @@ Meteor.publish("singleUserSubmitted", function(username){
   return Notes.find({"userId": user._id});
 });
 
-// Meteor.publish("notes", function(){
-//   return Notes.find();
-// });
-
-Meteor.publish("collections", function(){
-  return Collections.find();
+Meteor.publish("singleUserCollections", function(username){
+  var user = Meteor.users.findOne({username: username});
+  return Collections.find({"userId": user._id});
 });
 
-Meteor.publish("tags", function(){
-  return Tags.find();
+
+Meteor.publish("singleCollection", function(id){
+  var collection = Collections.findOne(id);
+
+  var collectionCursor = Collections.find(id);
+  var notesCursor = Notes.find({"_id": {$in: collection.notes}})
+
+  return [collectionCursor, notesCursor];
+});
+
+Meteor.publish("singleNote", function(id){
+  var note = Notes.findOne(id);
+
+  var noteCursor = Notes.find(id);
+  var commentsCursor = Comments.find({"noteId": note._id})
+
+  return [noteCursor, commentsCursor];
+});
+
+Meteor.publish("topNotes", function(){
+  return Notes.find();
+});
+
+Meteor.publish("topCollections", function(){
+  return Collections.find({isTag: {$ne: true}});
+});
+
+Meteor.publish("topTags", function(){
+  return Collections.find({isTag: true});
 });

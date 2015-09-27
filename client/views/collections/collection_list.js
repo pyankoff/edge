@@ -8,6 +8,6 @@ Template.collectionList.onCreated(function() {
   var self = this;
 
   self.autorun(function() {
-    self.subscribe('collections');
+    self.subscribe('topCollections');
   });
 });
