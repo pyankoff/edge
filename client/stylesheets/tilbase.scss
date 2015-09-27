@@ -14,8 +14,7 @@ $mono: Menlo, Monaco, monospace;
   padding-top: 10px;
   padding-bottom: 10px;
 
-  display: flex;
-  align-items: center;
+  display: table;
 
   min-height: 100px;
 }
@@ -37,12 +36,24 @@ $mono: Menlo, Monaco, monospace;
 .note-title {
   color: #000;
   font-size: 1.5em;
+  display: block;
   &, &:hover, &:active, &:link, &:visited {
     text-decoration: none;
     color: #000;
   }
 }
 
+.item-thumbnail {
+  display: table-cell;
+  vertical-align: top;
+  float: none;
+}
+
+.upvote, .note, .collect {
+  display: table-cell;
+  vertical-align: middle;
+  float: none;
+}
 
 .comments-list {
   padding: 0;
@@ -98,7 +109,7 @@ $mono: Menlo, Monaco, monospace;
   bottom: 10px;
   left: 20px;
   .form-inline {
-    width: 250px;
+    width: 100%;
   }
 }
 
