@@ -3,24 +3,32 @@
     {{#if collectSuccess}}
       <div class="nice-work">
         <h3>Nice work!</h3>
-        <h4>Note has been added to your collection {{collectSuccess}}</h4>
+        <h4>Note has been added to your collection
+          <a href="/collection/{{collectSuccess._id}}">{{collectSuccess.name}}</a>
+        </h4>
       </div>
     {{else}}
-      <ul class="dropdown__menu">
-        {{#each collections}}
-          <li role="menuItem"><a href="#" class="collection-label">{{name}}</a></li>
-        {{/each}}
-      </ul>
-      <div class="row new-collection-div">
-        {{#if addNew}}
-          <form class="create-collection form-inline" role="form">
-            <input type="text" class="form-control" id="collectionName" placeholder="Collection name">
-            <button type="submit" class="btn btn-primary">Add</button>
-          </form>
-        {{else}}
-          <a href="#" role="menuItem" class="add-new-collection">Add New</a>
-        {{/if}}
-      </div>
+      {{#if currentUser}}
+        <ul class="dropdown__menu">
+          {{#each collections}}
+            <li role="menuItem"><a href="#" class="collection-label">{{name}}</a></li>
+          {{/each}}
+        </ul>
+        <div class="row new-collection-div">
+          {{#if addNew}}
+            <form class="create-collection form-inline" role="form">
+              <input type="text" class="form-control" id="collectionName" placeholder="Collection name">
+              <button type="submit" class="btn btn-primary">Add</button>
+            </form>
+          {{else}}
+            <a href="#" role="menuItem" class="add-new-collection">Add New</a>
+          {{/if}}
+        </div>
+      {{else}}
+        <div class="nice-work">
+          <p>Please <a href="/sign-in">log in</a> or <a href="/sign-up">sign up</a> to use collections</p>
+        </div>
+      {{/if}}
     {{/if}}
   {{/if}}
 </template>

@@ -1,6 +1,6 @@
 Template.collectPopover.helpers({
   collections: function () {
-    return Collections.find();
+    return Collections.find({userId: Meteor.userId()});
   },
   addNew: function () {
     return Session.get('addNewCollection');
@@ -39,7 +39,10 @@ Template.collectPopover.events({
       $inc: {noteCount: 1}
     })
 
-    Session.set('collectSuccess', this.name);
+    Session.set('collectSuccess', {
+      name: this.name,
+      _id: this._id
+    });
   }
 });
 
@@ -52,6 +55,6 @@ Template.collectPopover.onCreated(function() {
   var self = this;
 
   self.autorun(function() {
-    self.subscribe('topCollections');
+    self.subscribe('singleUserCollections', Meteor.user().username);
   });
 });
