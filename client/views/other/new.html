@@ -4,7 +4,8 @@
       <fieldset>
         <legend>Add a Note</legend>
         {{> afQuickField name='text' rows=6}}
-        {{> afQuickField name='tagIds' type="selectize" multiple=true placeholder="Add tags"}}
+        {{> afQuickField name='tagIds' type="selectize"
+              multiple=true placeholder="Add tags" value=tag}}
         {{> afQuickField name='source' placeholder="http://"}}
       </fieldset>
       <button type="submit" class="btn btn-lg btn-primary pull-right">Add</button>
