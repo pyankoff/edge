@@ -22,11 +22,15 @@
 
         <ul class="nav navbar-nav navbar-right">
           {{#if currentUser}}
-            <li><a href="/@{{username}}">{{username}}</a></li>
+            {{#if Template.subscriptionsReady}}
+              <li><a href="/@{{username}}">
+                <img src="{{imageLink}}" class="nav-avatar img-circle">
+              </a></li>
+            {{/if}}
           {{/if}}
             <li>{{> atNavButton}}</li>
             <li>
-              <a id="new-note" class="btn btn-default navbar-btn" href="/new">New Note</a>
+              <a class="btn btn-default navbar-btn" href="/new">New Note</a>
             </li>
         </ul>
       </div><!-- /.navbar-collapse -->

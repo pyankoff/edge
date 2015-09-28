@@ -152,6 +152,14 @@ header {
   padding-top: 20px;
 }
 
-#new-note {
-  padding: 6px;
+.navbar-right > li > a {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.nav-avatar {
+  height: 40px;
+  &:parent {
+
+  }
 }

@@ -1,10 +1,11 @@
 Accounts.onCreateUser(function(options, user){
   user = setupUser(user, options);
-  
+
   return user;
 });
 
 function setupUser (user, options) {
+  console.log(user);
   var userProperties = {
     profile: {},
     app: {
@@ -18,7 +19,12 @@ function setupUser (user, options) {
   user = _.extend(user, userProperties);
   console.log(user);
 
-  user.username = user.emails[0].address;
+  if (user.services.twitter != undefined) {
+    user.username = user.services.twitter.screenName;
+    user.imgUrl = user.services.twitter.profile_image_url;
+  } else {
+    user.username = user.emails[0].address;
+  }
 
   // // create slug from display name
   // user.app.slug = Telescope.utils.slugify(user.telescope.displayName);
