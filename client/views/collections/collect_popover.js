@@ -35,7 +35,8 @@ Template.collectPopover.events({
 
     Collections.update({_id: this._id},
     {
-      $addToSet: {notes: selectedNoteId}
+      $addToSet: {notes: selectedNoteId},
+      $inc: {noteCount: 1}
     })
 
     Session.set('collectSuccess', this.name);

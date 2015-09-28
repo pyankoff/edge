@@ -1,6 +1,6 @@
 Template.profileCollections.helpers({
   collections: function(){
-    return Collections.find();
+    return Collections.find({type: 'collection'});
   }
 });
 

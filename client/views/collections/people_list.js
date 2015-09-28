@@ -1,6 +1,6 @@
 Template.peopleList.helpers({
   people: function () {
-    return Collections.find();
+    return Collections.find({type: 'person'}, {sort: {noteCount: -1}});
   }
 });
 

@@ -1,6 +1,6 @@
 Template.classesList.helpers({
   classes: function () {
-    return Collections.find();
+    return Collections.find({type: 'class'});
   }
 });
 
