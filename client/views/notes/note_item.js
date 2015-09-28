@@ -15,7 +15,7 @@ Template.noteItem.helpers({
     return actionClass;
   },
   linkForTag: function () {
-    return FlowRouter.path("/collection/:id", {id: this.id});
+    return FlowRouter.path("/"+this.type+"/:id", {id: this._id});
   }
 });
 

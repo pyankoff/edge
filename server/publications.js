@@ -48,8 +48,18 @@ Meteor.publish("topNotes", function(){
   return Notes.find();
 });
 
+// Collections, Classes, People
+
 Meteor.publish("topCollections", function(){
   return Collections.find({type: 'collection'});
+});
+
+Meteor.publish("topClasses", function(){
+  return Collections.find({type: 'class'});
+});
+
+Meteor.publish("topPeople", function(){
+  return Collections.find({type: 'person'});
 });
 
 Meteor.publish("topTags", function(){
