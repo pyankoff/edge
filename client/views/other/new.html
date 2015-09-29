@@ -2,8 +2,7 @@
   {{#if Template.subscriptionsReady}}
     {{#autoForm collection="Notes" id="newNoteForm" type="method" meteormethod="submitNote"}}
       <fieldset>
-        <legend>Add a Note</legend>
-        {{> afQuickField name='text' rows=6}}
+        {{> afFieldInput name='text' rows=5}}
         {{> afQuickField name='tagIds' type="selectize"
               multiple=true placeholder="Add tags" value=tag}}
         {{> afQuickField name='source' placeholder="http://"}}

@@ -1,0 +1,23 @@
+<template name="newNotes">
+  {{#if Template.subscriptionsReady}}
+  {{#autoForm collection="Collections" id="newCollectionTitle"
+                type="method"
+                meteormethod="submitCollection" autosave=true}}
+      {{> afFieldInput name='name'}}
+  {{/autoForm}}
+    <div class="notes-input">
+      {{#each notes}}
+        {{#autoForm collection="Notes" id=this._id
+                    class="noteForm" doc=this
+                    autosave=true type="update"}}
+            {{> afFieldInput name='text' rows=3}}
+        {{/autoForm}}
+      {{/each}}
+
+      {{#autoForm collection="Notes" id="newNoteForm" type="method"
+                    meteormethod="submitNote"}}
+          {{> afFieldInput name='text' rows=5}}
+      {{/autoForm}}
+    </div>
+  {{/if}}
+</template>
