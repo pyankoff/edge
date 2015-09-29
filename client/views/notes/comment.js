@@ -10,6 +10,9 @@ Template.comment.helpers({
   },
   replies: function() {
     return Comments.find({topLevelCommentId: this._id});
+  },
+  imageLink: function() {
+    return this.imgUrl ? this.imgUrl : "http://placehold.it/30x30";
   }
 });
 

@@ -5,7 +5,6 @@ Accounts.onCreateUser(function(options, user){
 });
 
 function setupUser (user, options) {
-  console.log(user);
   var userProperties = {
     profile: {},
     app: {
@@ -21,9 +20,8 @@ function setupUser (user, options) {
 
   if (user.services.twitter != undefined) {
     user.username = user.services.twitter.screenName;
-    user.imgUrl = user.services.twitter.profile_image_url;
   } else {
-    user.username = user.emails[0].address;
+    user.email_hash = Avatar.hash(user.emails[0].address);
   }
 
   // // create slug from display name

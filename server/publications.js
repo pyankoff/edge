@@ -1,18 +1,21 @@
 Meteor.publish('singleUser', function(username) {
   var options = {
     fields: {
-      emails: 0,
-      createdAt: 0,
-      isAdmin: 0,
-      services: 0
+      '_id': true,
+      'username': true,
+      'app': true,
+      'services.twitter.profile_image_url': true,
+      'services.twitter.profile_image_url_https': true,
+      'services.twitter.screenName': true
     }
   }
 
-  var user = Meteor.users.findOne({username: username});
-  var userCursor = Users.find(user._id, options);
-  var notesCursor = Notes.find({"_id": {$in: user.app.upvotedNotes}});
+  return Users.find({username: username}, options);
+});
 
-  return [userCursor, notesCursor];
+Meteor.publish("singleUserUpvoted", function(username){
+  var user = Meteor.users.findOne({username: username});
+  return Notes.find({"_id": {$in: user.app.upvotedNotes}});
 });
 
 Meteor.publish("singleUserSubmitted", function(username){
@@ -41,8 +44,78 @@ Meteor.publish("singleNote", function(id){
   var noteCursor = Notes.find(id);
   var commentsCursor = Comments.find({"noteId": note._id})
 
-  return [noteCursor, commentsCursor];
+  var users = [];
+  if (note) {
+
+    users.push(note.userId); // publish post author's ID
+
+    // get IDs from all commenters on the post
+    var comments = commentsCursor.fetch();
+    if (comments.length) {
+      users = users.concat(_.pluck(comments, "userId"));
+    }
+
+    // publish upvoters
+    if (note.upvoters && note.upvoters.length) {
+      users = users.concat(note.upvoters);
+    }
+  }
+
+  // remove any duplicate IDs
+  users = _.unique(users);
+
+  var usersCursor = Meteor.users.find({_id: {$in: users}},
+    {fields: {
+      '_id': true,
+      'username': true,
+      'services.twitter.profile_image_url': true,
+      'services.twitter.profile_image_url_https': true,
+      'services.twitter.screenName': true
+    }});
+
+  return [noteCursor, commentsCursor, usersCursor];
 });
+
+Meteor.publish('postUsers', function(postId) {
+
+  check(postId, String);
+
+  if (Users.can.viewById(this.userId)){
+    // publish post author and post commenters
+    var post = Posts.findOne(postId);
+    var users = [];
+
+    if (post) {
+
+      users.push(post.userId); // publish post author's ID
+
+      // get IDs from all commenters on the post
+      var comments = Comments.find({postId: post._id}).fetch();
+      if (comments.length) {
+        users = users.concat(_.pluck(comments, "userId"));
+      }
+
+      // publish upvoters
+      if (post.upvoters && post.upvoters.length) {
+        users = users.concat(post.upvoters);
+      }
+
+      // publish downvoters
+      if (post.downvoters && post.downvoters.length) {
+        users = users.concat(post.downvoters);
+      }
+
+    }
+
+    // remove any duplicate IDs
+    users = _.unique(users);
+
+    return Meteor.users.find({_id: {$in: users}}, {fields: Users.pubsub.publicProperties});
+  }
+  return [];
+});
+
+
 
 Meteor.publish("topNotes", function(){
   return Notes.find();

@@ -1,6 +1,9 @@
 Template.collectionPage.helpers({
   notes: function () {
-    return Notes.find();
+    var id = FlowRouter.getParam('id');
+    var collection = Collections.findOne(id);
+
+    return Notes.find({"_id": {$in: collection.notes}});
   }
 });
 
