@@ -168,24 +168,59 @@ header {
   margin: 8px 19px;
 }
 
-.editable-text,
-.text-area-edit {
-  display: block;
-  height: 100px;
-}
-
-#newCollectionTitle input,
-.notes-input textarea {
+#collectionTitle,
+.notes-input textarea,
+.selectize-input,
+#newNoteForm textarea,
+#newNoteForm > .extra-fields > .form-control:last-child {
   border: none;
   box-shadow: none;
   font-size: 1.4em;
   resize: none;
+  background-color: #eee;
+  margin-top: 10px;
   &:focus {
     box-shadow: none;
   }
 }
 
-#newCollectionTitle input {
+#newNoteForm > .extra-fields > .form-control:last-child {
+  font-size: 1em;
+}
+
+#newNoteForm {
+  position: relative;
+}
+
+#newNoteForm > .fa-plus {
+  position: absolute;
+  z-index: 10;
+  height: 40px;
+  width: 100px;
+  top: 40px;
+  left: 310px;
+  color: #888;
+}
+
+#tagsForm {
+  display: none;
+}
+
+#collectionTitle {
   height: 50px;
   font-size: 2em;
+  display: none;
+}
+
+button.save {
+  margin-top: 10px;
+}
+
+.selectize-control.multi .selectize-input > div.item {
+  padding: 3px 10px;
+  background: white;
+}
+
+.extra-fields {
+  display: none;
 }

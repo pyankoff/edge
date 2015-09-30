@@ -1,0 +1,19 @@
+<template name="newNotes">
+  {{#if Template.subscriptionsReady}}
+    {{#autoForm collection="Collections" id="newCollection"
+                  type="method"
+                  meteormethod="submitCollection"}}
+        {{> afFieldInput name='name' id="collectionTitle"}}
+    {{/autoForm}}
+
+    <div class="notes-input">
+      {{#each notes}}
+        {{> noteForm this}}
+      {{/each}}
+
+      {{> noteForm}}
+
+      <button type="submit" class="btn btn-primary pull-right save">Save</button>
+    </div>
+  {{/if}}
+</template>

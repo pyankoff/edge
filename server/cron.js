@@ -1,5 +1,5 @@
 Meteor.startup(function () {
-  var scoreInterval = 60;
+  var scoreInterval = 0;
   if (scoreInterval > 0) {
 
     // active items get updated every N seconds
@@ -7,7 +7,7 @@ Meteor.startup(function () {
       var updatedNotes = 0;
       var updatedComments = 0;
 
-      Notes.find({'inactive': {$ne : true}}).forEach(function (note) { 
+      Notes.find({'inactive': {$ne : true}}).forEach(function (note) {
         updatedNotes += App.updateScore({collection: Notes, item: note});
       });
 

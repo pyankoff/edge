@@ -21,10 +21,13 @@ Template.newNotes.events({
       }
     });
   },
+  'click .save': function (e) {
+    console.log($('#tagsInput').val());
+  },
   'keydown .noteForm > textarea': function(e) {
     var go = function(dir) {
       e.preventDefault();
-      
+
       var currentNote = $(e.target).parent('.noteForm')[0];
       if (dir == 'prev') {
         var prevNoteArea = $(currentNote).prev().children()[0];
@@ -58,5 +61,6 @@ Template.newNotes.onCreated(function() {
   self.autorun(function() {
     // var id = FlowRouter.getParam('id');
     self.subscribe('singleCollection', 'Nhr25PCJDM7LtebPX');
+    self.subscribe('topTags');
   });
 });
