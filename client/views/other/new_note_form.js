@@ -5,11 +5,12 @@ Template.noteForm.helpers({
 });
 
 Template.noteForm.events({
-  "focus #newNoteForm > textarea": function(e) {
+  "focus .noteForm": function(e) {
     $(e.target).next('.extra-fields').show();
+    $(e.target).parents('.extra-fields').show();
   },
-  "blur #newNoteForm > textarea": function(e) {
-    $(e.target).next('.extra-fields').hide();
+  "blur .noteForm": function(e) {
+    $('.extra-fields').hide();
   }
 });
 

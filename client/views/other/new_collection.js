@@ -1,4 +1,4 @@
-Template.newNotes.helpers({
+Template.newCollection.helpers({
   notes: function() {
     return Notes.find();
   },
@@ -7,7 +7,7 @@ Template.newNotes.helpers({
   }
 });
 
-Template.newNotes.events({
+Template.newCollection.events({
   "focus #newNoteForm > textarea": function(e){
     Meteor.call("submitNote", {
       tagIds: ['Nhr25PCJDM7LtebPX']
@@ -55,7 +55,7 @@ Template.newNotes.events({
   }
 });
 
-Template.newNotes.onCreated(function() {
+Template.newCollection.onCreated(function() {
   var self = this;
 
   self.autorun(function() {
