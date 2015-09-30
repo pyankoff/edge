@@ -1,8 +1,8 @@
 <template name="noteForm">
   {{#if Template.subscriptionsReady}}
-    {{#if this._id}}
-      {{#autoForm collection="Notes" id=this._id
-          doc=this class="noteForm" autosave=true}}
+      {{#autoForm type="update" collection="Notes" id=this._id
+          doc=this class="noteForm" autosave=true
+          }}
           {{> afFieldInput name='text' rows=5}}
           <div class="extra-fields">
           {{> afFieldInput name='tagIds' type="selectize"
@@ -10,17 +10,5 @@
           {{> afFieldInput name='source' placeholder="Source link"}}
           </div>
       {{/autoForm}}
-    {{else}}
-      {{#autoForm collection="Notes" id="newNoteForm"
-          type="method" meteormethod="submitNote" class="noteForm"}}
-          {{> afFieldInput name='text' rows=5 placeholder="New note"}}
-          <div class="extra-fields">
-          {{> afFieldInput name='tagIds' type="selectize"
-                multiple=true placeholder="Tags" value=tag}}
-          {{> afFieldInput name='source' placeholder="Source link"}}
-          </div>
-      {{/autoForm}}
-    {{/if}}
-
   {{/if}}
 </template>

@@ -157,6 +157,11 @@ header {
   padding-bottom: 5px;
 }
 
+.nav > li>  a.navbar-btn {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
 .nav-avatar {
   height: 40px;
   &:parent {
@@ -209,11 +214,14 @@ header {
 #collectionTitle {
   height: 50px;
   font-size: 2em;
-  display: none;
 }
 
-button.save {
+button.save,
+button.new {
   margin-top: 10px;
+}
+button.new {
+  width: 100%;
 }
 
 .selectize-control.multi .selectize-input > div.item {
@@ -223,4 +231,11 @@ button.save {
 
 .extra-fields {
   display: none;
+}
+#newNoteForm > .extra-fields {
+  display: block;
+}
+
+.notes-input {
+  text-align: center;
 }

@@ -1,8 +1,7 @@
-<template name="newCollection">
+<template name="editCollection">
   {{#if Template.subscriptionsReady}}
     {{#autoForm collection="Collections" id="newCollection"
-                  type="method"
-                  meteormethod="submitCollection"}}
+                  type="update" doc=collection autosave=true}}
         {{> afFieldInput name='name' id="collectionTitle"}}
     {{/autoForm}}
 
@@ -11,7 +10,7 @@
         {{> noteForm this}}
       {{/each}}
 
-      {{> noteForm}}
+      <button type="submit" class="btn btn-default btn-lg new">New note</button>
 
       <button type="submit" class="btn btn-primary pull-right save">Save</button>
     </div>

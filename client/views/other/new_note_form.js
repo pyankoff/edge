@@ -14,7 +14,7 @@ Template.noteForm.events({
   }
 });
 
-Template.newNoteForm.onCreated(function() {
+Template.noteForm.onCreated(function() {
   var self = this;
   self.autorun(function() {
     self.subscribe('topTags');

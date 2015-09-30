@@ -33,6 +33,15 @@ Meteor.publish("singleCollection", function(id){
   var collection = Collections.findOne(id);
 
   var collectionCursor = Collections.find(id);
+  var notesCursor = Notes.find({"collectionIds": collection._id})
+
+  return [collectionCursor, notesCursor];
+});
+
+Meteor.publish("singleTag", function(id){
+  var collection = Collections.findOne(id);
+
+  var collectionCursor = Collections.find(id);
   var notesCursor = Notes.find({"tagIds": collection._id})
 
   return [collectionCursor, notesCursor];

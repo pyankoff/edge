@@ -1,6 +1,16 @@
 <template name="newNote">
   {{#if Template.subscriptionsReady}}
-    {{> noteForm}}
+    {{#autoForm type="method" target="noteSubmit"
+        collection="Notes" id="newNoteForm"
+        class="noteForm"
+        }}
+        {{> afFieldInput name='text' rows=5}}
+        <div class="extra-fields">
+        {{> afFieldInput name='tagIds' type="selectize"
+              multiple=true placeholder="Tags" value=tag}}
+        {{> afFieldInput name='source' placeholder="Source link"}}
+        </div>
+    {{/autoForm}}
     <button type="submit" class="btn btn-lg btn-primary save pull-right">Add</button>
   {{/if}}
   <p>Have a list of notes? <a href="/newCollection">Create collection</a></p>

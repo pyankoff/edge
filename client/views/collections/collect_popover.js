@@ -19,11 +19,8 @@ Template.collectPopover.events({
   'submit .create-collection': function(e) {
     e.preventDefault();
 
-    Collections.insert({
-      name: e.target.collectionName.value,
-      userId: Meteor.userId(),
-      type: 'collection',
-      notes: []
+    Meteor.call("collectionSubmit",{
+      name: e.target.collectionName.value
     });
 
     Session.set('addNewCollection', false);

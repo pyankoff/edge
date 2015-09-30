@@ -1,28 +1,22 @@
-Template.newCollection.helpers({
+Template.editCollection.helpers({
   notes: function() {
-    return Notes.find();
+    query = Notes.find()
+    return query;
   },
-  noteId: function() {
-    return this._id;
+  collection: function () {
+    var id = Session.get('colId');
+    return Collections.findOne(id);
   }
 });
 
-Template.newCollection.events({
-  "focus #newNoteForm > textarea": function(e){
+Template.editCollection.events({
+  "click .new": function(e){
     Meteor.call("submitNote", {
-      tagIds: ['Nhr25PCJDM7LtebPX']
-    }, function(error, result){
-      if(error){
-        console.log("error", error);
-      }
-      if(result){
-        var goTo = '#'+result._id+ ' > textarea'
-        $(goTo).focus();
-      }
+      collectionIds: [Session.get('colId')]
     });
   },
   'click .save': function (e) {
-    console.log($('#tagsInput').val());
+    $('#newCollection').submit();
   },
   'keydown .noteForm > textarea': function(e) {
     var go = function(dir) {
@@ -55,12 +49,34 @@ Template.newCollection.events({
   }
 });
 
-Template.newCollection.onCreated(function() {
+Template.editCollection.onCreated(function() {
   var self = this;
 
-  self.autorun(function() {
-    // var id = FlowRouter.getParam('id');
-    self.subscribe('singleCollection', 'Nhr25PCJDM7LtebPX');
-    self.subscribe('topTags');
-  });
+  var colId = FlowRouter.getQueryParam('id');
+  console.log(colId);
+
+  if (colId != undefined) {
+    Session.set('colId', colId);
+    self.autorun(function() {
+      self.subscribe('singleCollection', colId);
+      self.subscribe('topTags');
+    });
+  } else {
+    Meteor.call("collectionSubmit", {}, function(error, result){
+      if(error){
+        console.log("error", error);
+      }
+      if(result){
+        var colId = result._id;
+        Session.set('colId', colId);
+        Meteor.call("submitNote", {
+          collectionIds: [colId]
+        });
+        self.autorun(function() {
+          self.subscribe('singleCollection', colId);
+          self.subscribe('topTags');
+        });
+      }
+    });
+  }
 });
