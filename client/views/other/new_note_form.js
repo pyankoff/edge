@@ -6,11 +6,9 @@ Template.noteForm.helpers({
 
 Template.noteForm.events({
   "focus .noteForm": function(e) {
+    $('.extra-fields').hide();
     $(e.target).next('.extra-fields').show();
     $(e.target).parents('.extra-fields').show();
-  },
-  "blur .noteForm": function(e) {
-    $('.extra-fields').hide();
   }
 });
 

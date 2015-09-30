@@ -17,6 +17,7 @@ Template.editCollection.events({
   },
   'click .save': function (e) {
     $('#newCollection').submit();
+    FlowRouter.go('/collection/:id', {id: Session.get('colId')});
   },
   'keydown .noteForm > textarea': function(e) {
     var go = function(dir) {
@@ -53,7 +54,6 @@ Template.editCollection.onCreated(function() {
   var self = this;
 
   var colId = FlowRouter.getQueryParam('id');
-  console.log(colId);
 
   if (colId != undefined) {
     Session.set('colId', colId);
