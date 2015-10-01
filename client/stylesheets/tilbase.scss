@@ -222,6 +222,9 @@ button.new {
 }
 button.new {
   width: 100%;
+  &:active {
+    position: 
+  }
 }
 
 .selectize-control.multi .selectize-input > div.item {
