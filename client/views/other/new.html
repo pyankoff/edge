@@ -1,17 +1,14 @@
 <template name="newNote">
   {{#if Template.subscriptionsReady}}
-    {{#autoForm type="method" target="noteSubmit"
-        collection="Notes" id="newNoteForm"
-        class="noteForm"
-        }}
-        {{> afFieldInput name='text' rows=5}}
-        <div class="extra-fields">
-        {{> afFieldInput name='tagIds' type="selectize"
-              multiple=true placeholder="Tags" value=tag}}
-        {{> afFieldInput name='source' placeholder="Source link"}}
-        </div>
+    <h2>New note</h2>
+    {{#autoForm collection="Notes" id="newNoteForm" type="method" meteormethod="submitNote"}}
+      <fieldset>
+        {{> afQuickField name='text' rows=6}}
+        {{> afQuickField name='tagIds' type="selectize"
+              multiple=true placeholder="Add tags" value=tag}}
+        {{> afQuickField name='source' placeholder="http://"}}
+      </fieldset>
+      <button type="submit" class="btn btn-lg btn-primary pull-right">Add</button>
     {{/autoForm}}
-    <button type="submit" class="btn btn-lg btn-primary save pull-right">Add</button>
   {{/if}}
-  <p>Have a list of notes? <a href="/newCollection">Create collection</a></p>
 </template>

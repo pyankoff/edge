@@ -29,11 +29,11 @@ Meteor.publish("singleUserCollections", function(username){
 });
 
 
-Meteor.publish("singleCollection", function(id){
+Meteor.publish("singleTag", function(id){
   var collection = Collections.findOne(id);
 
   var collectionCursor = Collections.find(id);
-  var notesCursor = Notes.find({"collectionIds": collection._id})
+  var notesCursor = Notes.find({"tagIds": collection._id})
 
   return [collectionCursor, notesCursor];
 });

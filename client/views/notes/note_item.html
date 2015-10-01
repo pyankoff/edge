@@ -1,26 +1,30 @@
 <template name="noteItem">
   <div class="row note-item">
     <div class="upvote col-sm-1">
-      <span class="btn btn-default btn-upvote {{actionClass}}">⇧</span>
+      <button type="button" class="btn btn-default btn-upvote {{actionClass}}">
+        <i class="fa fa-chevron-up"></i>
+        <div class="score">{{upvotes}}</div>
+      </button>
     </div>
     <div class="item-thumbnail col-sm-1 hidden-xs">
       <img src="{{imgUrl}}" class="img-responsive img-rounded">
     </div>
     <div class="note col-sm-9 col-xs-10">
       <div class="row">
-        <span class="item-author">{{persona.name}}</span>
-      </div>
-      <div class="row">
         <a href="{{noteLink}}" class="note-title">{{text}}</a>
       </div>
-      <div class="row">
+      <div class="row item-tags">
         {{#each tags}}
           <a href="{{linkForTag}}" class="btn btn-default btn-sm">{{name}}</a>
         {{/each}}
       </div>
     </div>
+
     <div class="collect col-sm-1">
-      {{> addToCollection}}
+      {{#if this.source}}
+        <a href="{{source}}" target="_blank"><i class="fa fa-globe fa-2x"></i></a>
+      {{/if}}
     </div>
+
   </div>
 </template>

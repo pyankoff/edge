@@ -5,6 +5,12 @@ Template.profileHeader.helpers({
 
     return username;
   },
+  userId: function () {
+    var currentPath = FlowRouter.current();
+    var user = Meteor.users.findOne({username: currentPath.params.username});
+
+    return user._id;
+  },
   linkForTab: function (tab) {
     FlowRouter.watchPathChange()
     var currentPath = FlowRouter.current();

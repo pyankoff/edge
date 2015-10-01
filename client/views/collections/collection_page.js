@@ -1,9 +1,10 @@
 Template.collectionPage.helpers({
   notes: function () {
+    FlowRouter.watchPathChange();
     var id = FlowRouter.getParam('id');
     var collection = Collections.findOne(id);
 
-    return Notes.find({"_id": {$in: collection.notes}});
+    return Notes.find({"tagIds": collection._id});
   }
 });
 
@@ -12,6 +13,6 @@ Template.collectionPage.onCreated(function() {
 
   self.autorun(function() {
     var id = FlowRouter.getParam('id');
-    self.subscribe('singleCollection', id);
+    self.subscribe('singleTag', id);
   });
 });

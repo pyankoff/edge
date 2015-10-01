@@ -28,6 +28,14 @@ $mono: Menlo, Monaco, monospace;
   font-weight: bold;
 }
 
+.item-tags {
+  padding-top: 5px;
+}
+
+.upvote {
+  text-align: center;
+}
+
 .note-item:hover {
   background-color: #ccc;
   cursor: pointer;
@@ -173,72 +181,29 @@ header {
   margin: 8px 19px;
 }
 
-#collectionTitle,
-.notes-input textarea,
-.selectize-input,
-.noteForm textarea,
-.noteForm > .extra-fields > .form-control:last-child {
-  border: none;
-  box-shadow: none;
-  font-size: 1.4em;
-  resize: none;
-  background-color: #eee;
-  margin-top: 10px;
-  &:focus {
-    box-shadow: none;
-  }
-}
-
-.noteForm > .extra-fields > .form-control:last-child {
-  font-size: 1em;
-}
-
-#newNoteForm {
-  position: relative;
-}
-
-#newNoteForm > .fa-plus {
-  position: absolute;
-  z-index: 10;
-  height: 40px;
-  width: 100px;
-  top: 40px;
-  left: 310px;
-  color: #888;
-}
-
-#tagsForm {
-  display: none;
-}
-
-#collectionTitle {
-  height: 50px;
-  font-size: 2em;
-}
-
-button.save,
-button.new {
-  margin-top: 10px;
-}
-button.new {
-  width: 100%;
-  &:active {
-    position: 
-  }
-}
-
 .selectize-control.multi .selectize-input > div.item {
   padding: 3px 10px;
-  background: white;
-}
-
-.extra-fields {
-  display: none;
-}
-#newNoteForm > .extra-fields {
-  display: block;
+  background: #ccc;
 }
 
 .notes-input {
   text-align: center;
+}
+
+.fa-globe {
+  color: #ddd;
+}
+
+.user-info {
+  width: 100%;
+}
+
+.avatar-large {
+  display: inline-block;
+  float: left;
+  margin-right: 20px;
+}
+
+.username {
+  text-align: left;
 }

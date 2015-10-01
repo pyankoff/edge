@@ -22,6 +22,7 @@ Template.noteItem.helpers({
 Template.noteItem.events({
   'click .btn-upvote': function(e){
     e.preventDefault();
+    e.stopPropagation();
     var note = this;
     var user = Meteor.user();
 
@@ -37,6 +38,15 @@ Template.noteItem.events({
       Meteor.call('upvoteNote', note._id, function(){
         // Events.track("note upvoted", {'_id': note._id});
       });
+    }
+  },
+  'click .fa-globe, .item-thumbnail, .btn': function (e) {
+    e.stopPropagation();
+  },
+  'click .note-item': function (e) {
+    if (!$(e.target).is('.btn')) {
+      e.preventDefault();
+      FlowRouter.go("/note/:id", {id: this._id});
     }
   }
 });
