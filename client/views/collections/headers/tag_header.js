@@ -6,7 +6,7 @@ Template.tagHeader.helpers({
   }
 });
 
-Template.collectionHeader.onCreated(function() {
+Template.tagHeader.onCreated(function() {
   var self = this;
   self.autorun(function() {
     var id = FlowRouter.getParam('id');
