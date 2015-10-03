@@ -14,7 +14,8 @@ $mono: Menlo, Monaco, monospace;
   padding-top: 10px;
   padding-bottom: 10px;
 
-  display: table;
+  display: flex;
+  align-items: center;
 
   min-height: 100px;
 }

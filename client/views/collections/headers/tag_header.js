@@ -1,4 +1,4 @@
-Template.collectionHeader.helpers({
+Template.tagHeader.helpers({
   collection: function () {
     var id = FlowRouter.getParam('id');
 
