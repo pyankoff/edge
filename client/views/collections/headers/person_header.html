@@ -1,13 +1,12 @@
 <template name="personHeader">
   {{#if Template.subscriptionsReady}}
     <header>
-      <div class="container">
-        <div class="row">
+      <div class="container header-container">
+        <div>
           {{#with collection}}
             <h1>{{name}}</h1>
-            <h4>Influencer</h4>
             <a class="btn btn-default navbar-btn" href="/new-note?tag={{_id}}">
-              New note from {{name}}
+              Add note from {{name}}
             </a>
           {{/with}}
         </div>

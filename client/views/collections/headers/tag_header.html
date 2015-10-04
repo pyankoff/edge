@@ -1,10 +1,13 @@
 <template name="tagHeader">
   {{#if Template.subscriptionsReady}}
     <header>
-      <div class="container">
-        <div class="row">
+      <div class="container header-container">
+        <div>
           {{#with collection}}
             <h1>{{name}}</h1>
+            <a class="btn btn-default navbar-btn" href="/new-note?tag={{_id}}">
+              Add note to {{name}}
+            </a>
           {{/with}}
         </div>
       </div>

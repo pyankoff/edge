@@ -214,3 +214,43 @@ header {
   right: 0;
   top: 0;
 }
+
+#search {
+  background: #eee;
+  border: #aaa;
+  border-radius: 10px;
+  padding: 5px 10px;
+  margin: 10px 0;
+  &:focus {
+    outline: 0px;
+    border-radius: 10px;
+    border: #888;
+  }
+}
+
+.btn + .btn {
+  margin-right: 10px;
+}
+
+.no-results {
+  text-align: center;
+  font-size: 2em;
+  margin: 50px auto;
+  color: #eee;
+}
+
+.load-more {
+  margin-top: 20px;
+  width: 100%;
+  height: 40px;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-content {
+  padding-top: 10px;
+}

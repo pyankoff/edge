@@ -3,19 +3,22 @@
     {{#with notes}}
       {{> notesList}}
     {{/with}}
+    {{#if moreResults}}
+      <div class="showMoreResults no-results ">Loading...</div>
+    {{/if}}
   {{else}}
     {{#esEach id="search" index="notes"}}
         {{> noteItem}}
     {{/esEach}}
   {{/ifEsInputIsEmpty}}
 
-  {{> esLoadMoreButton index="notes" id="search"}}
+  {{> esLoadMoreButton index="notes" id="search" class="load-more btn btn-default"}}
 
   {{#ifEsHasNoResults index="notes" id="search"}}
       <div class="no-results">No results found!</div>
   {{/ifEsHasNoResults}}
 
   {{#ifEsIsSearching index="notes" id="search"}}
-          <div>Loading...</div>
+      <div class="no-results">Loading...</div>
   {{/ifEsIsSearching}}
 </template>

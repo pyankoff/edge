@@ -76,24 +76,10 @@ Meteor.publish("singleNote", function(id){
   return [noteCursor, commentsCursor, usersCursor];
 });
 
-Meteor.publish("topNotes", function(){
-  var noteCursor = Notes.find();
-  var notes = noteCursor.fetch();
+Meteor.publish("topNotes", function(limit){
+  var noteCursor = Notes.find({}, {limit: limit});
 
-  var tags = [];
-  for (var note in notes) {
-    tags = tags.concat(note.tagIds);
-  }
-  tags = _.unique(tags);
-  var tagsCursor = Collections.find({_id: {$in: tags}},
-    {fields: {
-      '_id': true,
-      'name': true,
-      'type': true,
-      'imgUrl': true
-    }});
-
-  return [noteCursor, tagsCursor];
+  return noteCursor;
 });
 
 // Collections, Classes, People

@@ -1,7 +1,7 @@
 <template name="newNote">
   {{#if Template.subscriptionsReady}}
     <h2>New note</h2>
-    {{#autoForm collection="Notes" id="newNoteForm" 
+    {{#autoForm collection="Notes" id="newNoteForm"
       type="method" meteormethod="submitNote"}}
       <fieldset>
         {{> afQuickField name='text' rows=6}}
@@ -9,7 +9,7 @@
               multiple=true placeholder="Add tags" value=tag}}
         {{> afQuickField name='source' placeholder="http://"}}
       </fieldset>
-      <button type="submit" class="btn btn-lg btn-primary pull-right">Add</button>
+      <button type="submit" class="btn btn-primary pull-right">Add</button>
     {{/autoForm}}
   {{/if}}
 </template>
