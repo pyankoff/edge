@@ -1,5 +1,21 @@
 <template name="home">
-  {{#with notes}}
-    {{> notesList}}
-  {{/with}}
+  {{#ifEsInputIsEmpty index="notes" id="search"}}
+    {{#with notes}}
+      {{> notesList}}
+    {{/with}}
+  {{else}}
+    {{#esEach id="search" index="notes"}}
+        {{> noteItem}}
+    {{/esEach}}
+  {{/ifEsInputIsEmpty}}
+
+  {{> esLoadMoreButton index="notes" id="search"}}
+
+  {{#ifEsHasNoResults index="notes" id="search"}}
+      <div class="no-results">No results found!</div>
+  {{/ifEsHasNoResults}}
+
+  {{#ifEsIsSearching index="notes" id="search"}}
+          <div>Loading...</div>
+  {{/ifEsIsSearching}}
 </template>

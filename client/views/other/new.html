@@ -1,7 +1,8 @@
 <template name="newNote">
   {{#if Template.subscriptionsReady}}
     <h2>New note</h2>
-    {{#autoForm collection="Notes" id="newNoteForm" type="method" meteormethod="submitNote"}}
+    {{#autoForm collection="Notes" id="newNoteForm" 
+      type="method" meteormethod="submitNote"}}
       <fieldset>
         {{> afQuickField name='text' rows=6}}
         {{> afQuickField name='tagIds' type="selectize"

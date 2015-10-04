@@ -1,0 +1,16 @@
+<template name="noteEdit">
+  {{#if Template.subscriptionsReady}}
+    <h2>New note</h2>
+    {{#autoForm collection="Notes" id="noteEditForm"
+      type="update" doc=note}}
+      <fieldset>
+        {{> afQuickField name='text' rows=6}}
+        {{> afQuickField name='tagIds' type="selectize"
+              multiple=true placeholder="Add tags"}}
+        {{> afQuickField name='source' placeholder="http://"}}
+      </fieldset>
+      <button type="submit" class="btn btn-lg btn-primary pull-right">Save</button>
+      <button class="delete btn btn-lg btn-danger pull-right">Delete</button>
+    {{/autoForm}}
+  {{/if}}
+</template>

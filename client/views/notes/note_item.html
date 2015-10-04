@@ -7,11 +7,16 @@
       </button>
     </div>
     <div class="item-thumbnail col-sm-1 hidden-xs">
-      <img src="{{imgUrl}}" class="img-responsive img-rounded">
+      <a href="{{imgLink}}"><img src="{{imgUrl}}" class="img-responsive img-rounded"></a>
     </div>
     <div class="note col-sm-9 col-xs-10">
       <div class="row">
         <span class="note-title">{{text}}</span>
+      </div>
+      <div class="edit">
+        {{#if canEdit}}
+          <a href="{{editLink}}">Edit</a>
+        {{/if}}
       </div>
       <div class="row item-tags">
         {{#each tags}}

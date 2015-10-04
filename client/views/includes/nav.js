@@ -1,5 +1,13 @@
 Template.nav.helpers({
   username: function () {
+    FlowRouter.watchPathChange();
+
+    var instance = EasySearch.getComponentInstance(
+      { index: 'notes', id: 'search'}
+    );
+    instance.clear();
+    $('#search')[0].value = '';
+
     return Meteor.user().username;
   }
 });

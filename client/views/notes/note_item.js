@@ -16,6 +16,17 @@ Template.noteItem.helpers({
   },
   linkForTag: function () {
     return FlowRouter.path("/"+this.type+"/:id", {id: this._id});
+  },
+  imgLink: function () {
+    if (this.persona != undefined) {
+      return FlowRouter.path("/"+this.persona.type+"/:id", {id: this.persona._id});
+    }
+  },
+  editLink: function () {
+    return FlowRouter.path("/note/:id/edit", {id: this._id});
+  },
+  canEdit: function () {
+    return this.userId == Meteor.userId();
   }
 });
 
@@ -44,7 +55,9 @@ Template.noteItem.events({
     e.stopPropagation();
   },
   'click .note-item': function (e) {
-    if (!$(e.target).is('.btn')) {
+    if (!$(e.target).is('.btn') &&
+        !$(e.target).is('img') &&
+        !$(e.target).is('a')) {
       e.preventDefault();
       FlowRouter.go("/note/:id", {id: this._id});
     }
