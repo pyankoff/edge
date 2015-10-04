@@ -34,6 +34,7 @@ Template.noteItem.events({
   'click .btn-upvote': function(e){
     e.preventDefault();
     e.stopPropagation();
+
     var note = this;
     var user = Meteor.user();
 
@@ -43,11 +44,11 @@ Template.noteItem.events({
     }
     if (user.hasUpvoted(note)) {
       Meteor.call('cancelUpvoteNote', note._id, function(){
-        // Events.track("note upvote cancelled", {'_id': note._id});
+        analytics.track("note upvote cancelled", {'_id': note._id});
       });
     } else {
       Meteor.call('upvoteNote', note._id, function(){
-        // Events.track("note upvoted", {'_id': note._id});
+        analytics.track("note upvoted", {'_id': note._id});
       });
     }
   },

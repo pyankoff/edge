@@ -79,6 +79,7 @@ npm-mongo@1.4.39_1
 oauth@1.1.6
 oauth1@1.1.5
 observe-sequence@1.0.7
+okgrow:analytics@0.4.0
 ordered-dict@1.0.4
 percolate:momentum@0.7.2
 percolate:velocityjs@1.1.0

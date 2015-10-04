@@ -10,7 +10,8 @@ Template.newNote.onCreated(function() {
   AutoForm.addHooks('newNoteForm', {
     after: {
       method: function (error, result) {
-        FlowRouter.go('/note/:id', {id: result._id})
+        analytics.track("note submitted", {'_id': result._id});
+        FlowRouter.go('/note/:id', {id: result._id});
       }
     }
   })

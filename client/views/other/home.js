@@ -26,7 +26,6 @@ Template.home.onCreated(function() {
 
   // whenever #showMoreResults becomes visible, retrieve more results
   function showMoreVisible() {
-    console.log('scroll');
     var threshold, target = $(".showMoreResults");
     if (!target.length) return;
 

@@ -18,6 +18,7 @@ Template.noteEdit.events({
        if(error){
          console.log("error", error);
        } else {
+         analytics.track("note deleted", {'_id': noteId});
          FlowRouter.go('/');
        }
      });
@@ -31,6 +32,7 @@ Template.noteEdit.onCreated(function() {
     after: {
       update: function (error, result) {
         var noteId = FlowRouter.getParam("id");
+        analytics.track("note edited", {'_id': noteId});
         FlowRouter.go('/note/:id', {id:noteId})
       }
     }

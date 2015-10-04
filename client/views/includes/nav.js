@@ -12,8 +12,27 @@ Template.nav.helpers({
   }
 });
 
+Template.nav.events({
+  "click a": function(e){
+    var instance = EasySearch.getComponentInstance(
+      { index: 'notes', id: 'search'}
+    );
+    instance.clear();
+    $('#search')[0].value = '';
+  }
+});
+
 Template.nav.onCreated(function() {
     var self = this;
+
+    var instance = EasySearch.getComponentInstance(
+      { index: 'notes', id: 'search'}
+    );
+
+    instance.on('searchingDone', function (searchingIsDone) {
+      searchingIsDone && analytics.track("search", {'text': $('#search')[0].value});;
+    });
+
     self.autorun(function() {
       if (Meteor.user() != null) {
         self.subscribe('singleUser', Meteor.user().username);
