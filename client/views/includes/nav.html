@@ -23,15 +23,15 @@
         <ul class="nav navbar-nav navbar-right">
           {{#if currentUser}}
             {{#if Template.subscriptionsReady}}
-            <li>
-              <a href="" class="dropdown-toggle" data-toggle="dropdown">
-                {{> avatar user=currentUser shape='circle' size='small'}}
-              </a>
-              <ul class="dropdown-menu">
-                <li><a href="/@{{username}}">Profile</a></li>
-                <li>{{> atNavButton}}</li>
-              </ul>
-            </li>
+              <li>
+                <a href="" class="dropdown-toggle" data-toggle="dropdown">
+                  {{> avatar user=currentUser shape='circle' size='small'}}
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a href="/@{{username}}">Profile</a></li>
+                  <li>{{> atNavButton}}</li>
+                </ul>
+              </li>
             {{/if}}
           {{else}}
             <li>{{> atNavButton}}</li>

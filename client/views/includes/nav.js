@@ -25,17 +25,17 @@ Template.nav.events({
 Template.nav.onCreated(function() {
     var self = this;
 
+    self.autorun(function() {
+      if (Meteor.user() != null) {
+        self.subscribe('singleUser', Meteor.user().username);
+      }
+    });
+
     var instance = EasySearch.getComponentInstance(
       { index: 'notes', id: 'search'}
     );
 
     instance.on('searchingDone', function (searchingIsDone) {
       searchingIsDone && analytics.track("search", {'text': $('#search')[0].value});;
-    });
-
-    self.autorun(function() {
-      if (Meteor.user() != null) {
-        self.subscribe('singleUser', Meteor.user().username);
-      }
     });
 });

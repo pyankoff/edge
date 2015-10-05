@@ -16,7 +16,6 @@ function setupUser (user, options) {
     isAdmin: false
   };
   user = _.extend(user, userProperties);
-  console.log(user);
 
   if (user.services.twitter != undefined) {
     user.username = user.services.twitter.screenName;

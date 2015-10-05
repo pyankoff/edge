@@ -222,6 +222,7 @@ header {
   border: none;
   background: #aaa;
   color: white;
+  margin-right: 10px;
   &:hover, &:active {
     outline: none !important;
   }
@@ -288,10 +289,6 @@ header {
     border-radius: 10px;
     border: #888;
   }
-}
-
-.btn + .btn {
-  margin-right: 10px;
 }
 
 .no-results {

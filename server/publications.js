@@ -8,9 +8,10 @@ Meteor.publish('singleUser', function(username) {
       'services.twitter.profile_image_url_https': true,
       'services.twitter.screenName': true
     }
-  }
+  };
 
-  return Users.find({username: username}, options);
+  var usersCursor = Meteor.users.find({username: username}, options);
+  return usersCursor;
 });
 
 Meteor.publish("singleUserUpvoted", function(username){
